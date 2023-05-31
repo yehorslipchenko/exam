@@ -52,6 +52,7 @@ export class MyFormComponent  implements OnInit {
       this.modelAdd.emit(this.model);
     }else{
       console.log('Validation Error')
+      alert("Validation Error!")
     }
     this.modelForm.reset();
   }
