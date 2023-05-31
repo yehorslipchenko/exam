@@ -3,14 +3,23 @@
 <ion-card *ngFor = "let model of models; let i = index">
 
   <ion-card-header>
-    <ion-card-title>{{model.model_name}}</ion-card-title>
-    <ion-card-subtitle>{{model.brand}}</ion-card-subtitle>
+    <ion-card-title>Series of main number.</ion-card-title>
+    <h4>
+      <ng-container *ngFor="let number of getSequence(model.main_number); let isEven = even">
+        <span [ngStyle]="{ 'color': isEven ? 'blue' : 'red' }">{{ number }}</span>
+        <span>&nbsp;</span>
+      </ng-container>
+    </h4>
   </ion-card-header>
 
   <ion-card-content>
-    <h2>Items:</h2>
+    <h2>Series of other numbers:</h2>
     <ion-item *ngFor="let item of model.arr">
-      {{item}}
+      <ng-container *ngFor="let number of getSequence(item); let isEven = even">
+        <span [ngStyle]="{ 'color': isEven ? 'blue' : 'red' }">{{ number }}</span>
+        <span>&nbsp;</span>
+      </ng-container>
     </ion-item>
   </ion-card-content>
+
 </ion-card>

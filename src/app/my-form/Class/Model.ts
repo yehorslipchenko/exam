@@ -1,12 +1,10 @@
 export class Model {
-  model_name: string = "";
-  brand: string = "";
+  main_number: number = 0;
 
   arr: string[] = [];
 
-  constructor(model_name: string, brand: string, arr: string []) {
-    this.model_name = model_name;
-    this.brand = brand;
+  constructor(main_number: number, arr: string []) {
+    this.main_number = main_number;
     this.arr = arr;
   }
 }
