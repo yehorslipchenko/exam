@@ -1,0 +1,16 @@
+<app-my-form (modelAdd)="addModel($event)"></app-my-form>
+
+<ion-card *ngFor = "let model of models; let i = index">
+
+  <ion-card-header>
+    <ion-card-title>{{model.model_name}}</ion-card-title>
+    <ion-card-subtitle>{{model.brand}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <h2>Items:</h2>
+    <ion-item *ngFor="let item of model.arr">
+      {{item}}
+    </ion-item>
+  </ion-card-content>
+</ion-card>

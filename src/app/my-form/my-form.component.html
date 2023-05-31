@@ -1,0 +1,34 @@
+<form [formGroup]="modelForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Model Reactive Form</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="Text">Name: </ion-label>
+        <ion-input id="model-name" type="Text" formControlName="modelName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="Text">Brand: </ion-label>
+        <ion-input id="model-brand" type="Text" formControlName="modelBrand"></ion-input>
+      </ion-item>
+      <ion-card formArrayName="modelArr">
+        <ion-card-header>Model Array</ion-card-header>
+        <ion-card-content>
+          <ion-button color="tertiary" (click)="addIntoArr()">
+            <ion-icon slot="start" name="add"></ion-icon>Add item</ion-button>
+          <ion-item *ngFor="let arrItem of getControls(); let i = index">
+            <ion-input type="text" formControlName={{i}} placeholder="Item"></ion-input>
+            <ion-button color="tertiary" (click)="removeFromArr(i)">
+              <ion-icon slot="start" name="trash"></ion-icon> Delete item
+            </ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button type="submit" color="my-color" expand="block" fill="outline" [disabled]="!modelForm.valid">Submit</ion-button>
+</form>
